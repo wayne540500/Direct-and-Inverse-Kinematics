@@ -28,3 +28,55 @@ simulink blocks.
 • There is a different folder of each question. You should keep the current code structure. Once init.m
 is ran in each folder, you should be able to automatically play the simulink environment and obtain
 results. Show the joint trajectories in the joint space and the errors operational space.
+ht2383 	N15040025 	Hua Wen, Tsuei
+Project2 report
+Part1:
+ 
+According to the scheme on textbook, I draw the same structure on matlab using Simulink.(run the init.m file) 
+
+For KD KP I set them both 300.
+Put scope on e, e_dot & q to observe
+
+the scope of q:
+ 
+the scope of error:
+ 
+the scope of error_dot:
+ 
+Analytic Jacobian:
+-a1*sin(th1)-a2*sin(th1+th2)        -a2*sin(th1+th2)        0       0
+a1*cos(th1)+a2*cos(th1+th2)         a2*cos(th1+th2)         0       0
+0                                  	 0                       -1      0
+1                                  	 1                       0       -1
+Jacobian inverse:
+-a1*sin(th1)-a2*sin(th1+th2)        -a2*sin(th1+th2)        0       0
+a1*cos(th1)+a2*cos(th1+th2)         a2*cos(th1+th2)         0       0
+0                                  	 0                       -1      0
+1                                   	 1                       0       -1
+Jacobian dot:
+-a1*sin(th1)-a2*sin(th1+th2)        -a2*sin(th1+th2)        0       0
+a1*cos(th1)+a2*cos(th1+th2)         a2*cos(th1+th2)         0       0
+0                                   	0                       -1        0
+1                                   	1                        0       -1
+If you run the plot_output.m file you will get all the Joint value and Operational space Error.
+Operational space Error:
+  
+Joint value:  
+ 
+Part2:
+ 
+ 
+There should only have 3 rows in jacobian pseudo-inverse is given by: J^†  = J^T (J J^T )^(-1)
+according to the equation I think the Simulink scheme should look like below, this time I write my code inside Simulink function:
+ 
+From the scope we can get error:
+ 
+and q:
+ 
+To get the Joint variables and errors in the operational space(please run the plot_output.m file):
+Figure1: for theta1 theta2 d3 theta4
+ 
+Figure2: for the error
+ 
+Figure3: for x y z
+ 
